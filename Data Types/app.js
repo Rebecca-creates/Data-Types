@@ -5,9 +5,9 @@ function getSubscriptionStatus() {
 return new Promise((resolve, reject) => {
     setTimeout(() => {  
         const status = "VIP";
-        resolve(status);
+        resolve(undefined);
     }, 2000);
-})
+});
 } 
 
 function getVideo(subscriptionStatus) {
@@ -28,11 +28,12 @@ async function main() {
     const status = await getSubscriptionStatus();
     statusRef.innerHTML = status;
     try {
-        console.log(await getVideo(status));   
+        console.log(await getVideo(status))   
     }
     catch (e) {
-        console.log(e);
+        console.log(e)
         videoRef.innerHTML = e;
     }
 }
+
 main()
